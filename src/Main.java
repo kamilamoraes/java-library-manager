@@ -12,6 +12,14 @@ public class Main {
 
         int opcao = scanner.nextInt();
 
+        if (opcao == 1) {
+            System.out.println("Você escolheu verificar um livro.");
+        } else if (opcao == 2) {
+            System.out.println("Saindo do Library Manager...");
+        } else {
+            System.out.println("Opção inválida!");
+        }
+
 
     }
 }
