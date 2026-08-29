@@ -5,6 +5,23 @@ public class Main {
     public static void main (String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        String[] livros = {"Dom Casmurro", "O Hobbit", "1984", "Harry Potter"};
+
+        for (int i = 0; i < livros.length; i++) {
+            System.out.println((i + 1) + " - " + livros[i]);
+        }
+
+        System.out.println("Digite o número do livro:");
+
+        int escolha = scanner.nextInt();
+
+        if (escolha >= 1 && escolha <= livros.length) {
+                System.out.println(livros[escolha - 1]);
+            } else {
+                System.out.println("Opção inválida.");
+            }
+
+
         int opcao;
     
         do {
