@@ -5,9 +5,24 @@ public class Main {
     public static void main (String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String[] livros = {"Dom Casmurro", "O Hobbit", "1984", "Harry Potter"};
+        String[] livros = new String[10];
 
-        for (int i = 0; i < livros.length; i++) {
+        livros[0] = "Dom Casmurro";
+        livros[1] = "O Hobbit";
+        livros[2] = "1984";
+        livros[3] = "Harry Potter";
+
+        int quantidadeLivros = 4;
+
+        System.out.println("Digite o nome do livro:");
+
+        String novoLivro = scanner.nextLine();
+
+        livros[quantidadeLivros] = novoLivro;
+
+        quantidadeLivros++;
+
+        for (int i = 0; i < quantidadeLivros; i++) {
             System.out.println((i + 1) + " - " + livros[i]);
         }
 
