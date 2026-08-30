@@ -14,21 +14,6 @@ public class Main {
 
         int quantidadeLivros = 4;
 
-        for (int i = 0; i < quantidadeLivros; i++) {
-            System.out.println((i + 1) + " - " + livros[i]);
-        }
-
-        System.out.println("Digite o número do livro:");
-
-        int escolha = scanner.nextInt();
-
-        if (escolha >= 1 && escolha <= livros.length) {
-                System.out.println(livros[escolha - 1]);
-            } else {
-                System.out.println("Opção inválida.");
-            }
-
-
         int opcao;
     
         do {
@@ -90,6 +75,8 @@ public class Main {
         break;
 
     case 0:
+
+        System.out.println("Saindo do Library Manager...");
         
         break;
 
