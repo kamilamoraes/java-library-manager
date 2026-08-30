@@ -14,14 +14,6 @@ public class Main {
 
         int quantidadeLivros = 4;
 
-        System.out.println("Digite o nome do livro:");
-
-        String novoLivro = scanner.nextLine();
-
-        livros[quantidadeLivros] = novoLivro;
-
-        quantidadeLivros++;
-
         for (int i = 0; i < quantidadeLivros; i++) {
             System.out.println((i + 1) + " - " + livros[i]);
         }
@@ -41,21 +33,72 @@ public class Main {
     
         do {
             System.out.println("===== LIBRARY MANAGER =====");
-            System.out.println("1 - Verificar Livro");
-            System.out.println("2 - Sair");
+            System.out.println("1 - Listar livros");
+            System.out.println("2 - Cadastrar livro");
+            System.out.println("3 - Procurar livro");
+            System.out.println("0 - Sair");
             System.out.print("Escolha uma opção: ");
 
             opcao = scanner.nextInt();
 
-            if (opcao == 1) {
-                System.out.println("Você escolheu verificar um livro.");
-            } else if (opcao == 2) {
-                System.out.println("Saindo do Library Manager...");
-            } else {
-                System.out.println("Opção inválida!");
-            }
+           switch (opcao) {
+    case 1:
 
-        } while (opcao != 2);
+        for (int i = 0; i < quantidadeLivros; i++) {
+            System.out.println((i + 1) + " - " + livros[i]);
+    }
+        
+        break;
+
+    case 2:
+
+        System.out.println("Digite o nome do livro:");
+
+        scanner.nextLine();
+
+        String novoLivro = scanner.nextLine();
+
+        livros[quantidadeLivros] = novoLivro;
+
+        quantidadeLivros++;
+        
+        break;
+
+    case 3:
+
+        System.out.println("Digite o nome do livro:");
+
+        scanner.nextLine();
+
+        String busca = scanner.nextLine();
+
+        boolean encontrado = false;
+
+        for (int i = 0; i < quantidadeLivros; i++) {
+            
+            if (livros[i].equals(busca)) {
+                System.out.println("Livro encontrado!");
+                encontrado = true;
+        }
+            
+    }
+
+            if (!encontrado) {
+                System.out.println("Livro não encontrado.");
+}
+        
+        break;
+
+    case 0:
+        
+        break;
+
+    default:
+        
+        }
+
+    } while (opcao != 0);
 
     }
+
 }
