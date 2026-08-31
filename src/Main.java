@@ -37,6 +37,8 @@ public class Main {
 
     case 2:
 
+        if (quantidadeLivros < livros.length) {
+
         System.out.println("Digite o nome do livro:");
 
         scanner.nextLine();
@@ -46,6 +48,10 @@ public class Main {
         livros[quantidadeLivros] = novoLivro;
 
         quantidadeLivros++;
+
+        } else {
+        System.out.println("A biblioteca está cheia.");
+    }
         
         break;
 
