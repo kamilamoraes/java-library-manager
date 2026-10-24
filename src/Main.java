@@ -5,12 +5,12 @@ public class Main {
     public static void main (String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String[] livros = new String[10];
+        Livro[] livros = new Livro[10];
 
-        livros[0] = "Dom Casmurro";
-        livros[1] = "O Hobbit";
-        livros[2] = "1984";
-        livros[3] = "Harry Potter";
+        livros[0] = new Livro("Dom Casmurro", "Machado de Assis", 1899, 1);
+        livros[1] = new Livro("O Hobbit", "J. R. R. Tolkien", 1937, 2);
+        livros[2] = new Livro("1984", "George Orwell", 1949, 3);
+        livros[3] = new Livro("Harry Potter", "J. K. Rowling", 1997, 4);
 
         int quantidadeLivros = 4;
 
@@ -30,7 +30,7 @@ public class Main {
     case 1:
 
         for (int i = 0; i < quantidadeLivros; i++) {
-            System.out.println((i + 1) + " - " + livros[i]);
+            System.out.println((i + 1) + " - " + livros[i].getTitulo());
     }
         
         break;
@@ -39,17 +39,26 @@ public class Main {
 
         if (quantidadeLivros < livros.length) {
 
-        System.out.println("Digite o nome do livro:");
-
         scanner.nextLine();
 
+        System.out.println("Digite o nome do livro:");
         String novoLivro = scanner.nextLine();
 
-        livros[quantidadeLivros] = novoLivro;
+        System.out.println("Digite o autor:");
+        String autor = scanner.nextLine();
+
+        System.out.println("Digite o ano de publicação:");
+        int anoPublicacao = scanner.nextInt();
+
+        int id = quantidadeLivros + 1;
+
+        livros[quantidadeLivros] = new Livro(novoLivro, autor, anoPublicacao, id);
 
         quantidadeLivros++;
 
-        } else {
+        System.out.println("Livro cadastrado com sucesso!");
+
+    } else {
         System.out.println("A biblioteca está cheia.");
     }
         
@@ -57,27 +66,25 @@ public class Main {
 
     case 3:
 
-        System.out.println("Digite o nome do livro:");
+       scanner.nextLine();
 
-        scanner.nextLine();
+    System.out.println("Digite o nome do livro:");
+    String busca = scanner.nextLine();
 
-        String busca = scanner.nextLine();
+    boolean encontrado = false;
 
-        boolean encontrado = false;
+    for (int i = 0; i < quantidadeLivros; i++) {
 
-        for (int i = 0; i < quantidadeLivros; i++) {
-            
-            if (livros[i].equals(busca)) {
-                System.out.println("Livro encontrado!");
-                encontrado = true;
+        if (livros[i].getTitulo().equalsIgnoreCase(busca)) {
+            System.out.println("Livro encontrado!");
+            encontrado = true;
         }
-            
     }
 
-            if (!encontrado) {
-                System.out.println("Livro não encontrado.");
-}
-        
+    if (!encontrado) {
+        System.out.println("Livro não encontrado.");
+    }
+       
         break;
 
     case 0:
