@@ -15,7 +15,18 @@ public class Biblioteca {
     }
 
     public void cadastrarLivro(String titulo, String autor, int anoPublicacao) {
-    if (quantidadeLivros < livros.length) {
+    
+        if (titulo.isBlank()) {
+            System.out.println("O título do livro não pode ficar vazio.");
+            return;
+        }
+
+        if (anoPublicacao <= 0) {
+            System.out.println("O ano de publicação deve ser maior que zero.");
+            return;
+        }
+
+        if (quantidadeLivros < livros.length) {
         int id = quantidadeLivros + 1;
 
         livros[quantidadeLivros] = new Livro(titulo, autor, anoPublicacao, id);
@@ -30,6 +41,12 @@ public class Biblioteca {
     }
 
     public void buscarLivro(String titulo) {
+
+        if (titulo.isBlank()) {
+            System.out.println("Digite um título para realizar a busca.");
+            return;
+        }
+
     boolean encontrado = false;
 
     for (int i = 0; i < quantidadeLivros; i++) {
@@ -42,7 +59,7 @@ public class Biblioteca {
     if (!encontrado) {
         System.out.println("Livro não encontrado.");
     }
-    
+
     }
 
 }
