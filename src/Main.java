@@ -14,6 +14,8 @@ public class Main {
 
         int quantidadeLivros = 4;
 
+        Biblioteca biblioteca = new Biblioteca(livros, quantidadeLivros);
+
         int opcao;
     
         do {
@@ -29,15 +31,11 @@ public class Main {
            switch (opcao) {
     case 1:
 
-        for (int i = 0; i < quantidadeLivros; i++) {
-            System.out.println((i + 1) + " - " + livros[i].getTitulo());
-    }
+        biblioteca.listarLivros();
         
         break;
 
     case 2:
-
-        if (quantidadeLivros < livros.length) {
 
         scanner.nextLine();
 
@@ -50,41 +48,19 @@ public class Main {
         System.out.println("Digite o ano de publicação:");
         int anoPublicacao = scanner.nextInt();
 
-        int id = quantidadeLivros + 1;
+        biblioteca.cadastrarLivro(novoLivro, autor, anoPublicacao);
 
-        livros[quantidadeLivros] = new Livro(novoLivro, autor, anoPublicacao, id);
-
-        quantidadeLivros++;
-
-        System.out.println("Livro cadastrado com sucesso!");
-
-    } else {
-        System.out.println("A biblioteca está cheia.");
-    }
-        
         break;
 
     case 3:
 
-       scanner.nextLine();
+        scanner.nextLine();
 
-    System.out.println("Digite o nome do livro:");
-    String busca = scanner.nextLine();
+        System.out.println("Digite o nome do livro:");
+        String busca = scanner.nextLine();
 
-    boolean encontrado = false;
+        biblioteca.buscarLivro(busca);   
 
-    for (int i = 0; i < quantidadeLivros; i++) {
-
-        if (livros[i].getTitulo().equalsIgnoreCase(busca)) {
-            System.out.println("Livro encontrado!");
-            encontrado = true;
-        }
-    }
-
-    if (!encontrado) {
-        System.out.println("Livro não encontrado.");
-    }
-       
         break;
 
     case 0:
